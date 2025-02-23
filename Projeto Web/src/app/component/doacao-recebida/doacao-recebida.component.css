@@ -1,0 +1,12 @@
+.titulo-lista-doacao {
+    margin-top: 20px;
+    margin-left: 10px;
+}
+
+.modal-backdrop.show {
+  opacity: none !important;
+}
+
+.customer-form-table {
+    margin-bottom: 300px;
+}

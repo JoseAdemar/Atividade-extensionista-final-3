@@ -1,0 +1,38 @@
+.teste p{
+    background-color: rgba(255,255,255,0.3);
+    padding-top: 20px;
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+    
+}
+
+.teste h5{
+    background-color: rgba(255,255,255,0.3);  
+}
+
+@media screen and (max-width: 767px) {
+    .d-none {
+      display: block!important;
+      text-align: center !important;
+    }
+    .carousel-item.active {
+       margin-bottom: 345px !important;
+    }
+    .carousel-control-next{
+        margin-bottom: 376px !important;
+    }
+
+    .carousel-control-prev-icon {
+        margin-bottom: 376px !important;
+    }
+
+    .carousel-indicators{
+        margin-bottom: 376px !important;
+    }
+
+    .carousel-inner.d-flex{
+        margin-bottom: -370px !important;
+    }
+
+  }
+

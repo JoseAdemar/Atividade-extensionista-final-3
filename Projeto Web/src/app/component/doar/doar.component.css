@@ -1,0 +1,31 @@
+.alert{
+    text-align: center;
+    
+}
+
+.form-select {
+    width: 40%;
+    height: 300px !important;
+}
+
+.espaco-entre-form {
+    margin-top: 20px;
+}
+
+.espaco-forms {
+   margin-top: 15px !important;
+}
+
+.produtos-itens{
+    display: flexbox; /* Corretamente usando flex */
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    max-width: 100%; /* Para garantir que a div não ultrapasse o espaço disponível */
+    box-sizing: border-box; /* Garante que o padding e a borda não aumentem o tamanho da div */
+}
+
+.alertaVermelho {
+    color: rgb(233, 4, 4);
+}
+

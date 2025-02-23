@@ -1,0 +1,100 @@
+<div class="container-fluid">
+    <h3 style="text-align: center; margin-top: 20px;">Bem-vindo a nossa página de doação</h3>
+    <div *ngIf="this.mensagemDoacao != ''" class="alert alert-success" role="alert">
+        {{this.mensagemDoacao}}
+      </div>
+    <form (ngSubmit)="salvarDoacao()">
+        <div class="row">
+            <div class="form-group col-md-2">
+                <input [(ngModel)]="doacao.doador.cpf" type="text" class="form-control" id="cpf" name="cpf"
+                    placeholder="CPF" required>
+                    <span class="alertaVermelho">* <p *ngIf="doacao.doador.cpf == '' && this.camposObrigatorios != ''">Campo obrigatório</p></span>
+            </div>
+            <div class="form-group col-md-5">
+                <input [(ngModel)]="doacao.doador.nome" type="text" class="form-control" id="nome" name="nome"
+                    placeholder="Nome completo" required>
+                    <span class="alertaVermelho">* <p *ngIf="doacao.doador.nome == '' && this.camposObrigatorios != ''">Campo obrigatório</p></span>
+            </div>
+            <div class="form-group col-md-5">
+                <input [(ngModel)]="doacao.doador.email" type="email" class="form-control" id="email" name="email"
+                    placeholder="Email" required>
+                    <span class="alertaVermelho">* <p *ngIf="doacao.doador.email == '' && this.camposObrigatorios != ''">Campo obrigatório</p></span>
+            </div>
+        </div>
+        <div class="row espaco-forms">
+            <div class="form-group col-md-2">
+                <input [(ngModel)]="doacao.doador.endereco.cep" type="text" class="form-control" id="cep" name="cep"
+                    placeholder="cep" required>
+            </div>
+            <div class="form-group col-md-3">
+                <input [(ngModel)]="doacao.doador.endereco.localidade" type="text" class="form-control" id="localidade"
+                    name="localidade" placeholder="cidade" required>
+            </div>
+
+            <div class="form-group col-md-4">
+                <input [(ngModel)]="doacao.doador.endereco.bairro" type="text" class="form-control" id="bairro"
+                    name="bairro" placeholder="bairro" required>
+            </div>
+
+            <div class="form-group col-md-1">
+                <select [(ngModel)]="doacao.doador.endereco.uf" id="uf" name="uf" class="form-control">
+                    <option selected>UF</option>
+                    <option>AC</option>
+                    <option>AL</option>
+                    <option>AM</option>
+                    <option>AP</option>
+                    <option>BA</option>
+                    <option>CE</option>
+                    <option>DF</option>
+                    <option>ES</option>
+                    <option>GO</option>
+                    <option>MA</option>
+                    <option>MG</option>
+                    <option>MS</option>
+                    <option>MT</option>
+                    <option>PA</option>
+                    <option>PB</option>
+                    <option>PE</option>
+                    <option>PI</option>
+                    <option>PR</option>
+                    <option>RJ</option>
+                    <option>RN</option>
+                    <option>RO</option>
+                    <option>RR</option>
+                    <option>RS</option>
+                    <option>SC</option>
+                    <option>SE</option>
+                    <option>SP</option>
+                    <option>TO</option>
+
+                </select>
+            </div>
+            <div class="form-group col-md-2">
+                <input [(ngModel)]="doacao.doador.telefone" type="text" class="form-control" id="telefone"
+                    name="telefone" placeholder="Telefone" required>
+                    <span class="alertaVermelho">* <p *ngIf="doacao.doador.telefone == '' && this.camposObrigatorios != ''">Campo obrigatório</p></span>
+            </div>
+        </div>
+        <hr class="espaco-entre-form">
+            <p style="font-weight: bolder;">Selecione os itens para doação</p>
+        <div class="produtos-itens">
+            <div class="row" *ngFor="let item of itens">
+                <div class="col-md-2">
+                    <label>
+                        <input [(ngModel)]="item.selecionado" name="selecionado{{item.id}}" id="selecionado{{item.id}}"  name="nome" id="nome" type="checkbox">
+                        {{ item.nome }}
+                    </label>
+                </div>
+                <div class="col-md-2">
+                    <label class="quantidade-produtos" for="">
+                        Qtd:
+                    </label>
+                    <input [(ngModel)]="item.quantidade" name="quantidade" id="quantidade" type="number" min="1" style="width: 70px;" />
+                </div>
+            </div>
+        </div>
+        <br>
+        <br>
+        <button class="btn btn-primary" style="margin-bottom: 35px;" type="submit">Enviar</button>
+    </form>
+</div>

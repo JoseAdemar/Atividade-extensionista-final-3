@@ -1,0 +1,27 @@
+.rodape{
+    background-color: rgb(133, 133, 133);
+    padding-top: 35px;
+    padding-bottom: 50px;
+    color: rgb(232, 236, 240);
+}
+
+.rodape li{
+    color:rgb(203, 201, 201);
+}
+
+.rodape li a{
+    color:rgb(203, 201, 201) !important;
+}
+.rodape h4{
+   font-weight:600;
+}
+
+.rodape ul{
+    text-align: left;
+}
+
+@media screen and (max-width: 767px) {
+    .rodape{
+       margin-top: 0px;
+    }
+  }

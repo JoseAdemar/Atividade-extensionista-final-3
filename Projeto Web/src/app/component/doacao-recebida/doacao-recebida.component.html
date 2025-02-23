@@ -1,0 +1,62 @@
+<h4 class="titulo-lista-doacao">Lista de doações recebidas</h4>
+
+<div class="customer-form-table">
+  <table class="table mt-4">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Total itens</th>
+        <th>Produtos</th>
+        <th>Doador</th>
+        <th>Recolhida</th>
+        <th>Email</th>
+        <th>Telefone</th>
+        <th>Cep</th>
+        <th>UF</th>
+        <th>Cidade</th>
+        <th>Editar</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="
+          let doacao of doacoes
+            | paginate : { itemsPerPage: 10, currentPage: paginator }
+        ">
+        <td>{{ doacao.doacaoId}}</td>
+        <td>{{ doacao.totalItens}}</td>
+        <td>{{ doacao.produtos}}</td>
+        <td>{{ doacao.nomeDoador }}</td>
+        <td>{{ doacao.doacaoRecolhida}}</td>
+        <td>{{ doacao.emailDoador }}</td>
+        <td>{{ doacao.telefoneDoador }}</td>
+        <td>{{ doacao.cep }}</td>
+        <td>{{ doacao.uf }}</td>
+        <td>{{ doacao.localidade }}</td>
+        <td> <button (click)="setSelectedDoacaoId(doacao.doacaoId)" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            <a><i style="margin-left: 10px" class="fa-regular fa-pen-to-square"></i></a>
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <pagination-controls (pageChange)="paginator = $event"></pagination-controls>
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Confirmação de doação</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          Deseja confirmar o recebimento da doação?
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+          <button (click)="alterarStatusDoacaoRecolhida(selectedDoacaoId)" type="button"
+            class="btn btn-primary">Confirmar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

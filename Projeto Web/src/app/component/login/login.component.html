@@ -1,0 +1,13 @@
+
+<body>
+  <form>
+    <div class="login">
+      <h4>Acesso restrito, somente a usuários autorizados</h4>
+      <p *ngIf="usuarioLogado">Usuário logado com sucesso</p>
+      <input [(ngModel)]="this.usuario" type="text" class="form-control" id="usuario" name="usuario" type="text" placeholder="Usuário" />
+      <input [(ngModel)]="this.senha" type="text" class="form-control" id="senha" name="senha" type="password" placeholder="Senha" />
+      <button class="button" (click)="validarLogin()">Login</button>
+      <p style="color: red;">{{this.usuarioOuSenhaIncorreta}}</p>
+    </div>
+  </form>
+</body>
